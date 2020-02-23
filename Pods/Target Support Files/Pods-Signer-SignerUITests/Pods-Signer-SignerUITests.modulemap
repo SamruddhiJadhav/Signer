@@ -1,0 +1,6 @@
+framework module Pods_Signer_SignerUITests {
+  umbrella header "Pods-Signer-SignerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
