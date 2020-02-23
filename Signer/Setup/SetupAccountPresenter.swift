@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+class SetupAccountPresenter: SetupAccountPresenterProtocol {
+    weak var view: SetupAccountViewControllerProtocol?
+    var wireframe: SetupAccountWireframeProtocol?
+    var interactor: SetupAccountInteracterProtocol?
+    
+    func getAccountDetails(forKey: String?) {
+        guard let privateKey = forKey,
+            let wallet = interactor?.getAccountDetails(privateKey:
+                privateKey) else {
+            return
+        }
+        view?.showWalletDetails(walletDetails: wallet)
+    }
+    
+    func signClicked() {
+        
+    }
+    
+    func verifyClicked() {
+        
+    }
+}

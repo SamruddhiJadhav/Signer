@@ -1,142 +1,90 @@
+//  web3swift
 //
-//  Web3+Protocols.swift
-//  web3swift-iOS
-//
-//  Created by Alexander Vlasov on 26.02.2018.
-//  Copyright © 2018 Bankex Foundation. All rights reserved.
+//  Created by Alex Vlasov.
+//  Copyright © 2018 Alex Vlasov. All rights reserved.
 //
 
-import BigInt
 import Foundation
+import BigInt
 import class PromiseKit.Promise
+//import EthereumAddress
+
+/// Protocol for generic Ethereum event parsing results
+public protocol EventParserResultProtocol {
+    var eventName: String {get}
+    var decodedResult: [String:Any] {get}
+    var contractAddress: EthereumAddress {get}
+    var transactionReceipt: TransactionReceipt? {get}
+    var eventLog: EventLog? {get}
+}
 
 /// Protocol for generic Ethereum event parser
 public protocol EventParserProtocol {
-    /**
-     Parses the transaction for events matching the EventParser settings.
-     - Parameter transaction: web3swift native EthereumTransaction object
-     - Returns: array of events
-     - Important: This call is synchronous
-     */
-    func parseTransaction(_ transaction: EthereumTransaction) throws -> [EventParserResult]
-    
-    /**
-     Parses the transaction for events matching the EventParser settings.
-     - Parameter hash: Transaction hash
-     - Returns: array of events
-     - Important: This call is synchronous
-     */
-    func parseTransactionByHash(_ hash: Data) throws -> [EventParserResult]
-    
-    /**
-     Parses the block for events matching the EventParser settings.
-     - Parameter block: Native web3swift block object
-     - Returns: array of events
-     - Important: This call is synchronous
-     */
-    func parseBlock(_ block: Block) throws -> [EventParserResult]
-    
-    /**
-     Parses the block for events matching the EventParser settings.
-     - Parameter blockNumber: Ethereum network block number
-     - Returns: array of events
-     - Important: This call is synchronous
-     */
-    func parseBlockByNumber(_ blockNumber: UInt64) throws -> [EventParserResult]
-    
-    /**
-     Parses the transaction for events matching the EventParser settings.
-     - Parameter transaction: web3swift native EthereumTransaction object
-     - Returns: promise that returns array of events
-     - Important: This call is synchronous
-     */
-    func parseTransactionPromise(_ transaction: EthereumTransaction) -> Promise<[EventParserResult]>
-    
-    /**
-     Parses the transaction for events matching the EventParser settings.
-     - Parameter hash: Transaction hash
-     - Returns: promise that returns array of events
-     - Important: This call is synchronous
-     */
-    func parseTransactionByHashPromise(_ hash: Data) -> Promise<[EventParserResult]>
-    
-    /**
-     Parses the block for events matching the EventParser settings.
-     - Parameter blockNumber: Ethereum network block number
-     - Returns: promise that returns array of events
-     - Important: This call is synchronous
-     */
-    func parseBlockByNumberPromise(_ blockNumber: UInt64) -> Promise<[EventParserResult]>
-    
-    /**
-     Parses the block for events matching the EventParser settings.
-     - Parameter block: Native web3swift block object
-     - Returns: promise that returns array of events
-     - Important: This call is synchronous
-     */
-    func parseBlockPromise(_ block: Block) -> Promise<[EventParserResult]>
-    
+    func parseTransaction(_ transaction: EthereumTransaction) throws -> [EventParserResultProtocol]
+    func parseTransactionByHash(_ hash: Data) throws -> [EventParserResultProtocol]
+    func parseBlock(_ block: Block) throws -> [EventParserResultProtocol]
+    func parseBlockByNumber(_ blockNumber: UInt64) throws -> [EventParserResultProtocol]
+    func parseTransactionPromise(_ transaction: EthereumTransaction) -> Promise<[EventParserResultProtocol]>
+    func parseTransactionByHashPromise(_ hash: Data) -> Promise<[EventParserResultProtocol]>
+    func parseBlockByNumberPromise(_ blockNumber: UInt64) -> Promise<[EventParserResultProtocol]>
+    func parseBlockPromise(_ block: Block) -> Promise<[EventParserResultProtocol]>
 }
 
 /// Enum for the most-used Ethereum networks. Network ID is crucial for EIP155 support
-public struct NetworkId {
-	/// Network id number
-    public var rawValue: BigUInt
-	/// NetworkId(1) init
-    public init(_ rawValue: BigUInt) {
-        self.rawValue = rawValue
+public enum Networks {
+    case Rinkeby
+    case Mainnet
+    case Ropsten
+    case Kovan
+    case Custom(networkID: BigUInt)
+    
+    public var name: String {
+        switch self {
+        case .Rinkeby: return "rinkeby"
+        case .Ropsten: return "ropsten"
+        case .Mainnet: return "mainnet"
+        case .Kovan: return "kovan"
+        case .Custom: return ""
+        }
     }
-	
-	/// Init with int value
-    public init(_ rawValue: Int) {
-        self.rawValue = BigUInt(rawValue)
+    
+    public var chainID: BigUInt {
+        switch self {
+        case .Custom(let networkID): return networkID
+        case .Mainnet: return BigUInt(1)
+        case .Ropsten: return BigUInt(3)
+        case .Rinkeby: return BigUInt(4)
+        case .Kovan: return BigUInt(42)
+        }
     }
-	
-	/// Returns array of all known networks (mainnet, ropsten, rinkeby and kovan)
-    public var all: [NetworkId] {
-        return [.mainnet, .ropsten, .rinkeby, .kovan]
-    }
-
-	/// Default networkid (.mainnet)
-    public static var `default`: NetworkId = .mainnet
-	/// - Returns: 1
-    public static var mainnet: NetworkId { return 1 }
-	/// - Returns: 3
-    public static var ropsten: NetworkId { return 3 }
-	/// - Returns: 4
-    public static var rinkeby: NetworkId { return 4 }
-	/// - Returns: 42
-    public static var kovan: NetworkId { return 42 }
-}
-
-extension NetworkId: RawRepresentable {
-    /// RawRepresentable init
-    public init(rawValue: BigUInt) {
-        self.rawValue = rawValue
-    }
-}
-
-extension NetworkId: CustomStringConvertible {
-    /// Returns network name
-    public var description: String {
-        switch rawValue {
-        case 1: return "mainnet"
-        case 3: return "ropsten"
-        case 4: return "rinkeby"
-        case 42: return "kovan"
-        default: return ""
+    
+    static let allValues = [Mainnet, Ropsten, Kovan, Rinkeby]
+    
+    static func fromInt(_ networkID:Int) -> Networks? {
+        switch networkID {
+        case 1:
+            return Networks.Mainnet
+        case 3:
+            return Networks.Ropsten
+        case 4:
+            return Networks.Rinkeby
+        case 42:
+            return Networks.Kovan
+        default:
+            return Networks.Custom(networkID: BigUInt(networkID))
         }
     }
 }
 
-extension NetworkId: ExpressibleByIntegerLiteral {
-    /// Literal type used for ExpressibleByIntegerLiteral
-    public typealias IntegerLiteralType = Int
-    /// ExpressibleByIntegerLiteral init so you can do
-    /// ```
-    /// let networkId: NetworkId = 1
-    /// ```
-    public init(integerLiteral value: Int) {
-        rawValue = BigUInt(value)
+extension Networks: Equatable {
+    public static func ==(lhs: Networks, rhs: Networks) -> Bool {
+        return lhs.chainID == rhs.chainID
+            && lhs.name == rhs.name
     }
+}
+
+public protocol EventLoopRunnableProtocol {
+    var name: String {get}
+    var queue: DispatchQueue {get}
+    func functionToRun()
 }

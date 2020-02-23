@@ -1,42 +1,36 @@
-//
-//  PlainKeystore.swift
 //  web3swift
 //
-//  Created by Alexander Vlasov on 06.04.2018.
-//  Copyright © 2018 Bankex Foundation. All rights reserved.
+//  Created by Alex Vlasov.
+//  Copyright © 2018 Alex Vlasov. All rights reserved.
 //
 
 import Foundation
+//import secp256k1_swift
 
-/// Keystore that contains private key
+//import EthereumAddress
+
 public class PlainKeystore: AbstractKeystore {
     private var privateKey: Data
     
-    /// Always returns array with one address
-    public var addresses: [Address]
-
-    /// Default: false
+    public var addresses: [EthereumAddress]?
+    
     public var isHDKeystore: Bool = false
-
-    /// Returns keystore private key.
-    /// - Parameter password: We already have unencrypted private. So password doing nothing here
-    /// - Parameter address: We have only one address. So account will be ignored too
-    public func UNSAFE_getPrivateKeyData(password _: String = "", account _: Address) throws -> Data {
-        return privateKey
+    
+    public func UNSAFE_getPrivateKeyData(password: String = "", account: EthereumAddress) throws -> Data {
+        return self.privateKey
     }
     
-    /// Init with private key hex string
-    public convenience init(privateKey: String) throws {
-        try self.init(privateKey: privateKey.dataFromHex())
+    public convenience init?(privateKey: String) {
+        guard let privateKeyData = Data.fromHex(privateKey) else {return nil}
+        self.init(privateKey: privateKeyData)
     }
     
-    /// Init with private key data
-    public init(privateKey: Data) throws {
-        try SECP256K1.verifyPrivateKey(privateKey: privateKey)
-
-        let publicKey = try Web3Utils.privateToPublic(privateKey, compressed: false)
-        let address = try Web3Utils.publicToAddress(publicKey)
-        addresses = [address]
+    public init?(privateKey: Data) {
+        guard SECP256K1.verifyPrivateKey(privateKey: privateKey) else {return nil}
+        guard let publicKey = Web3.Utils.privateToPublic(privateKey, compressed: false) else {return nil}
+        guard let address = Web3.Utils.publicToAddress(publicKey) else {return nil}
+        self.addresses = [address]
         self.privateKey = privateKey
     }
+
 }

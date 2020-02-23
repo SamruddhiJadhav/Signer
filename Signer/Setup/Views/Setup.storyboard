@@ -10,12 +10,12 @@
         <!--Setup Account View Controller-->
         <scene sceneID="uf0-Wd-Csv">
             <objects>
-                <viewController storyboardIdentifier="setup" id="cFY-4l-ECq" customClass="SetupAccountViewController" customModule="Signer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupAccountViewController" id="cFY-4l-ECq" customClass="SetupAccountViewController" customModule="Signer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adS-p4-byj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsr-1i-F8m">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" text="Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsr-1i-F8m">
                                 <rect key="frame" x="30" y="133" width="76.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -25,62 +25,62 @@
                                 <rect key="frame" x="0.0" y="214" width="414" height="648"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5M-3F-kqV" userLabel="setupView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="319.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="648"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Private Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtC-LL-url">
-                                                <rect key="frame" x="30" y="143" width="354" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Private Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtC-LL-url">
+                                                <rect key="frame" x="30" y="40" width="354" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="mtC-LL-url" firstAttribute="top" secondItem="a5M-3F-kqV" secondAttribute="top" constant="40" id="U3q-AH-J2R"/>
                                             <constraint firstItem="mtC-LL-url" firstAttribute="leading" secondItem="a5M-3F-kqV" secondAttribute="leading" constant="30" id="dyN-G3-gSq"/>
                                             <constraint firstAttribute="trailing" secondItem="mtC-LL-url" secondAttribute="trailing" constant="30" id="poc-u5-WI5"/>
-                                            <constraint firstItem="mtC-LL-url" firstAttribute="centerY" secondItem="a5M-3F-kqV" secondAttribute="centerY" id="qnD-IG-6tM"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saa-Ur-O2n" userLabel="AccountsView">
-                                        <rect key="frame" x="0.0" y="329.5" width="414" height="318.5"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saa-Ur-O2n" userLabel="AccountsView">
+                                        <rect key="frame" x="0.0" y="648" width="414" height="240"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-LY-mTF">
-                                                <rect key="frame" x="30" y="20" width="354" height="142"/>
+                                                <rect key="frame" x="30" y="20" width="354" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COn-bd-e4n">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Address" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COn-bd-e4n">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8s-o6-oEp">
-                                                        <rect key="frame" x="0.0" y="40.5" width="354" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8s-o6-oEp">
+                                                        <rect key="frame" x="0.0" y="20" width="354" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNg-YA-qrF">
-                                                        <rect key="frame" x="0.0" y="81" width="354" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNg-YA-qrF">
+                                                        <rect key="frame" x="0.0" y="40" width="354" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80d-Ze-tWV">
-                                                        <rect key="frame" x="0.0" y="121.5" width="354" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80d-Ze-tWV">
+                                                        <rect key="frame" x="0.0" y="60" width="354" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-Ib-olk">
-                                                <rect key="frame" x="191.5" y="262" width="31" height="0.0"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-Ib-olk">
+                                                <rect key="frame" x="191.5" y="180" width="31" height="0.0"/>
                                                 <state key="normal" title="Sign"/>
                                                 <connections>
                                                     <action selector="signClicked:" destination="cFY-4l-ECq" eventType="touchUpInside" id="meb-dW-NdQ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-Iq-toi">
-                                                <rect key="frame" x="187" y="277" width="40" height="11.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-Iq-toi">
+                                                <rect key="frame" x="187" y="195" width="40" height="0.0"/>
                                                 <state key="normal" title="Verify"/>
                                                 <connections>
                                                     <action selector="verifyClicked:" destination="cFY-4l-ECq" eventType="touchUpInside" id="rBN-Tt-A2P"/>
@@ -94,9 +94,9 @@
                                             <constraint firstAttribute="trailing" secondItem="UqL-LY-mTF" secondAttribute="trailing" constant="30" id="DVm-fk-6EV"/>
                                             <constraint firstItem="UqL-LY-mTF" firstAttribute="top" secondItem="saa-Ur-O2n" secondAttribute="top" constant="20" symbolic="YES" id="O7Z-Tc-YFX"/>
                                             <constraint firstItem="Pbf-Ib-olk" firstAttribute="centerX" secondItem="saa-Ur-O2n" secondAttribute="centerX" id="ciY-Sn-QIm"/>
-                                            <constraint firstAttribute="bottom" secondItem="OGA-Iq-toi" secondAttribute="bottom" constant="30" id="dDg-4O-n6g"/>
+                                            <constraint firstAttribute="bottom" secondItem="OGA-Iq-toi" secondAttribute="bottom" constant="45" id="dDg-4O-n6g"/>
                                             <constraint firstItem="OGA-Iq-toi" firstAttribute="top" secondItem="Pbf-Ib-olk" secondAttribute="bottom" constant="15" id="hDd-sS-UzM"/>
-                                            <constraint firstItem="Pbf-Ib-olk" firstAttribute="top" secondItem="UqL-LY-mTF" secondAttribute="bottom" constant="100" id="sAe-cw-6El"/>
+                                            <constraint firstItem="Pbf-Ib-olk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UqL-LY-mTF" secondAttribute="bottom" constant="100" id="sAe-cw-6El"/>
                                         </constraints>
                                     </view>
                                 </subviews>

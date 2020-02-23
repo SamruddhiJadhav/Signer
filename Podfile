@@ -7,7 +7,7 @@ target 'Signer' do
 
   # Pods for Signer
 
-  pod 'web3swift', git: 'https://github.com/BANKEX/web3swift.git'
+  pod 'web3swift'
 
   target 'SignerTests' do
     inherit! :search_paths

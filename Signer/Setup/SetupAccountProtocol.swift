@@ -7,3 +7,31 @@
 //
 
 import Foundation
+
+protocol SetupAccountViewControllerProtocol: class {
+    var presenter: SetupAccountPresenterProtocol? { get set }
+    
+    func showWalletDetails(walletDetails: EthereumWallet)
+}
+
+protocol SetupAccountPresenterProtocol: class {
+    var view: SetupAccountViewControllerProtocol? { get set }
+    var interactor: SetupAccountInteracterProtocol? { get set }
+    var wireframe: SetupAccountWireframeProtocol? { get set }
+    
+    func getAccountDetails(forKey: String?)
+    
+    func signClicked()
+    func verifyClicked()
+}
+
+protocol SetupAccountWireframeProtocol: class {
+    var presenter: SetupAccountPresenterProtocol? { get set }
+    
+}
+
+protocol SetupAccountInteracterProtocol: class {
+    var presenter: SetupAccountPresenterProtocol? { get }
+    
+    func getAccountDetails(privateKey: String) -> EthereumWallet?
+}

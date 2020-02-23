@@ -6,4 +6,28 @@
 //  Copyright © 2020 Samruddhi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SetupAccountWireframe: SetupAccountWireframeProtocol {
+    weak var presenter: SetupAccountPresenterProtocol?
+    
+    static let storyboardId = "Setup"
+    static let viewId = "SetupAccountViewController"
+
+    static func presentSetupAccountModule() -> UIViewController {
+        let view: SetupAccountViewController = StoryboardUtil.instantiateView(storyboardId,
+                                                              viewId)
+        let presenter = SetupAccountPresenter()
+        let wireframe = SetupAccountWireframe()
+        let interactor = SetupAccountInteractor()
+        
+        view.presenter = presenter
+        presenter.view = view
+        presenter.wireframe = wireframe
+        presenter.interactor = interactor
+        wireframe.presenter = presenter
+        interactor.presenter = presenter
+
+        return view
+    }
+}

@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class SetupAccountInteractor: SetupAccountInteracterProtocol {
+    weak var presenter: SetupAccountPresenterProtocol?
+    
+    func getAccountDetails(privateKey: String) -> EthereumWallet? {
+        Web3SwiftManager.sharedInstance.privateKey = privateKey
+        return Web3SwiftManager.sharedInstance.getBalanceAndAddress()
+    }
+}
