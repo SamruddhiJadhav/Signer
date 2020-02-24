@@ -28,6 +28,7 @@ protocol SetupAccountPresenterProtocol: class {
 protocol SetupAccountWireframeProtocol: class {
     var presenter: SetupAccountPresenterProtocol? { get set }
     
+    func presentSignModule()
 }
 
 protocol SetupAccountInteracterProtocol: class {

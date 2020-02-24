@@ -32,38 +32,38 @@ class Web3SwiftManager {
         return nil
     }
     
-//    func signPersonalMessage(message: String) -> Data? {
-//        guard let privateKey = privateKey else { return nil }
-//        guard let privateKeyData = Data.fromHex(privateKey) else { return nil }
-//        guard let keystore = try? EthereumKeystoreV3(privateKey: privateKeyData) else { return nil }
-//        let keystoreManager = KeystoreManager([keystore])
-//        web3Rinkeby.addKeystoreManager(keystoreManager)
-//        guard let addresses = keystoreManager.addresses else { return nil }
-//        do {
-//            guard let messageData = message.data(using: .utf8) else { return nil }
-//            let signedData = try web3Rinkeby.personal.signPersonalMessage(message: messageData, from: addresses[0])
-//            let signedBase64Data = signedData.base64EncodedData()
-//            return signedBase64Data
-//        } catch {
-//            print(error)
-//            return nil
-//        }
-//    }
-//    
-//    func validatePersonalMessage(message: String, qrResultString: String) -> Bool {
-//        if let signature = Data(base64Encoded: qrResultString),
-//            let unMarshalledSign = SECP256K1.unmarshalSignature(signatureData: signature) {
-//            print("V = " + String(unMarshalledSign.v))
-//            print("R = " + Data(unMarshalledSign.r).toHexString())
-//            print("S = " + Data(unMarshalledSign.s).toHexString())
-//            guard let messageData = message.data(using: .utf8) else { return false }
-//            let signer = try? web3Rinkeby.personal.ecrecover(personalMessage: messageData, signature: signature)
-//            if (signer?.address == walletAddress) {
-//                return true
-//            } else {
-//                return false
-//            }
-//        }
-//        return false
-//    }
+    func signPersonalMessage(message: String) -> Data? {
+        guard let privateKey = privateKey else { return nil }
+        guard let privateKeyData = Data.fromHex(privateKey) else { return nil }
+        guard let keystore = try? EthereumKeystoreV3(privateKey: privateKeyData) else { return nil }
+        let keystoreManager = KeystoreManager([keystore])
+        web3Rinkeby.addKeystoreManager(keystoreManager)
+        guard let addresses = keystoreManager.addresses else { return nil }
+        do {
+            guard let messageData = message.data(using: .utf8) else { return nil }
+            let signedData = try web3Rinkeby.personal.signPersonalMessage(message: messageData, from: addresses[0])
+            let signedBase64Data = signedData.base64EncodedData()
+            return signedBase64Data
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    func validatePersonalMessage(message: String, qrResultString: String) -> Bool {
+        if let signature = Data(base64Encoded: qrResultString),
+            let unMarshalledSign = SECP256K1.unmarshalSignature(signatureData: signature) {
+            print("V = " + String(unMarshalledSign.v))
+            print("R = " + Data(unMarshalledSign.r).toHexString())
+            print("S = " + Data(unMarshalledSign.s).toHexString())
+            guard let messageData = message.data(using: .utf8) else { return false }
+            let signer = try? web3Rinkeby.personal.ecrecover(personalMessage: messageData, signature: signature)
+            if (signer?.address == walletAddress) {
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
+    }
 }

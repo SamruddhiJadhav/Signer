@@ -30,4 +30,11 @@ class SetupAccountWireframe: SetupAccountWireframeProtocol {
 
         return view
     }
+    
+    func presentSignModule() {
+        guard let view = presenter?.view as? UIViewController else {
+            return
+        }
+        SigningWireframe.presentSetupAccountModule(vc: view)
+    }
 }

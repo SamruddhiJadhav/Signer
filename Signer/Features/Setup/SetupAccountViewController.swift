@@ -33,7 +33,7 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     }
     
     @IBAction func signClicked(_ sender: Any) {
-    
+        presenter?.signClicked()
     }
     
     @IBAction func verifyClicked(_ sender: Any) {

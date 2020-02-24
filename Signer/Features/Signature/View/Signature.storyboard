@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signature View Controller-->
+        <scene sceneID="wgc-YI-1LW">
+            <objects>
+                <viewController storyboardIdentifier="SignatureViewController" id="2Ga-2e-tlr" customClass="SignatureViewController" customModule="Signer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PD9-dO-bML">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-Sn-ksa">
+                                <rect key="frame" x="30" y="89" width="354" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cF-gm-geQ">
+                                <rect key="frame" x="30" y="155" width="354" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVg-JS-CEu">
+                                <rect key="frame" x="0.0" y="163" width="414" height="699"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VpW-oz-vM1">
+                                        <rect key="frame" x="40" y="182.5" width="334" height="334"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VpW-oz-vM1" secondAttribute="height" multiplier="1:1" id="sgn-1f-lsu"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="VpW-oz-vM1" firstAttribute="leading" secondItem="EVg-JS-CEu" secondAttribute="leading" constant="40" id="9XP-Q4-Khl"/>
+                                    <constraint firstAttribute="trailing" secondItem="VpW-oz-vM1" secondAttribute="trailing" constant="40" id="GA4-ON-8QT"/>
+                                    <constraint firstItem="VpW-oz-vM1" firstAttribute="centerY" secondItem="EVg-JS-CEu" secondAttribute="centerY" id="PI2-uE-2k4"/>
+                                    <constraint firstItem="VpW-oz-vM1" firstAttribute="centerX" secondItem="EVg-JS-CEu" secondAttribute="centerX" id="vwA-wk-aIO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Khd-NN-w4J" firstAttribute="trailing" secondItem="EVg-JS-CEu" secondAttribute="trailing" id="9Tr-Au-QzJ"/>
+                            <constraint firstItem="EVg-JS-CEu" firstAttribute="top" secondItem="1cF-gm-geQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Dsj-MW-gUV"/>
+                            <constraint firstItem="1cF-gm-geQ" firstAttribute="top" secondItem="YBX-Sn-ksa" secondAttribute="bottom" constant="30" id="JJL-fx-cjd"/>
+                            <constraint firstItem="YBX-Sn-ksa" firstAttribute="top" secondItem="Khd-NN-w4J" secondAttribute="top" constant="45" id="Nkf-5N-5Fr"/>
+                            <constraint firstItem="1cF-gm-geQ" firstAttribute="leading" secondItem="Khd-NN-w4J" secondAttribute="leading" constant="30" id="Qlp-go-E0S"/>
+                            <constraint firstItem="YBX-Sn-ksa" firstAttribute="leading" secondItem="Khd-NN-w4J" secondAttribute="leading" constant="30" id="UHU-K6-h2w"/>
+                            <constraint firstItem="Khd-NN-w4J" firstAttribute="trailing" secondItem="YBX-Sn-ksa" secondAttribute="trailing" constant="30" id="dwe-Z1-Gjh"/>
+                            <constraint firstItem="Khd-NN-w4J" firstAttribute="trailing" secondItem="1cF-gm-geQ" secondAttribute="trailing" constant="30" id="e6C-ox-wsE"/>
+                            <constraint firstItem="Khd-NN-w4J" firstAttribute="bottom" secondItem="EVg-JS-CEu" secondAttribute="bottom" id="hZs-vA-TCW"/>
+                            <constraint firstItem="EVg-JS-CEu" firstAttribute="leading" secondItem="Khd-NN-w4J" secondAttribute="leading" id="idR-RP-rxy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Khd-NN-w4J"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="1cF-gm-geQ" id="eZa-DC-kLi"/>
+                        <outlet property="qrCodeImageView" destination="VpW-oz-vM1" id="kAd-ex-WOx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S57-34-vL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="117"/>
+        </scene>
+    </scenes>
+</document>

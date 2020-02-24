@@ -17,6 +17,18 @@
 		1D3EC67424023FB500D6826C /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC67324023FB500D6826C /* UITextFieldExtension.swift */; };
 		1D3EC677240242F500D6826C /* EthereumWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC676240242F500D6826C /* EthereumWallet.swift */; };
 		1D3EC6792402448100D6826C /* Web3SwiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC6782402448100D6826C /* Web3SwiftManager.swift */; };
+		1D3EC67E24025B4D00D6826C /* Signing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3EC67D24025B4D00D6826C /* Signing.storyboard */; };
+		1D3EC68024025F7400D6826C /* SigningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC67F24025F7400D6826C /* SigningViewController.swift */; };
+		1D3EC68224025F8B00D6826C /* SigningProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC68124025F8B00D6826C /* SigningProtocol.swift */; };
+		1D3EC68424025F9C00D6826C /* SigningWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC68324025F9C00D6826C /* SigningWireframe.swift */; };
+		1D3EC68624025FAE00D6826C /* SigningPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC68524025FAE00D6826C /* SigningPresenter.swift */; };
+		1D3EC68C2402F83E00D6826C /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3EC68B2402F83E00D6826C /* Signature.storyboard */; };
+		1D3EC68E2402F85700D6826C /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC68D2402F85700D6826C /* SignatureViewController.swift */; };
+		1D3EC6902402F86700D6826C /* SignaturePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC68F2402F86700D6826C /* SignaturePresenter.swift */; };
+		1D3EC6922402F87A00D6826C /* SignatureWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC6912402F87A00D6826C /* SignatureWireframe.swift */; };
+		1D3EC6942402F88B00D6826C /* SignatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC6932402F88B00D6826C /* SignatureProtocol.swift */; };
+		1D3EC6962402F89F00D6826C /* SignatureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC6952402F89F00D6826C /* SignatureInteractor.swift */; };
+		1D3EC6982402FE9300D6826C /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EC6972402FE9300D6826C /* QRCodeGenerator.swift */; };
 		1D97CACE24015FA200B77CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D97CACD24015FA200B77CC1 /* AppDelegate.swift */; };
 		1D97CAD724015FAA00B77CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D97CAD624015FAA00B77CC1 /* Assets.xcassets */; };
 		1D97CADA24015FAA00B77CC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D97CAD824015FAA00B77CC1 /* LaunchScreen.storyboard */; };
@@ -56,6 +68,18 @@
 		1D3EC67324023FB500D6826C /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		1D3EC676240242F500D6826C /* EthereumWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumWallet.swift; sourceTree = "<group>"; };
 		1D3EC6782402448100D6826C /* Web3SwiftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3SwiftManager.swift; sourceTree = "<group>"; };
+		1D3EC67D24025B4D00D6826C /* Signing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signing.storyboard; sourceTree = "<group>"; };
+		1D3EC67F24025F7400D6826C /* SigningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningViewController.swift; sourceTree = "<group>"; };
+		1D3EC68124025F8B00D6826C /* SigningProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningProtocol.swift; sourceTree = "<group>"; };
+		1D3EC68324025F9C00D6826C /* SigningWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningWireframe.swift; sourceTree = "<group>"; };
+		1D3EC68524025FAE00D6826C /* SigningPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningPresenter.swift; sourceTree = "<group>"; };
+		1D3EC68B2402F83E00D6826C /* Signature.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signature.storyboard; sourceTree = "<group>"; };
+		1D3EC68D2402F85700D6826C /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
+		1D3EC68F2402F86700D6826C /* SignaturePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignaturePresenter.swift; sourceTree = "<group>"; };
+		1D3EC6912402F87A00D6826C /* SignatureWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureWireframe.swift; sourceTree = "<group>"; };
+		1D3EC6932402F88B00D6826C /* SignatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureProtocol.swift; sourceTree = "<group>"; };
+		1D3EC6952402F89F00D6826C /* SignatureInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureInteractor.swift; sourceTree = "<group>"; };
+		1D3EC6972402FE9300D6826C /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		1D97CACA24015FA200B77CC1 /* Signer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D97CACD24015FA200B77CC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D97CAD624015FAA00B77CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +142,7 @@
 			children = (
 				1D3EC66F2402384E00D6826C /* StoryboardUtil.swift */,
 				1D3EC6782402448100D6826C /* Web3SwiftManager.swift */,
+				1D3EC6972402FE9300D6826C /* QRCodeGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -136,6 +161,57 @@
 				1D3EC676240242F500D6826C /* EthereumWallet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1D3EC67A24025A7900D6826C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1D3EC6892402F82100D6826C /* Signature */,
+				1D3EC67B24025A9200D6826C /* SignatureSigning */,
+				1D97CAFE240184DC00B77CC1 /* Setup */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1D3EC67B24025A9200D6826C /* SignatureSigning */ = {
+			isa = PBXGroup;
+			children = (
+				1D3EC67C24025AF300D6826C /* View */,
+				1D3EC67F24025F7400D6826C /* SigningViewController.swift */,
+				1D3EC68124025F8B00D6826C /* SigningProtocol.swift */,
+				1D3EC68324025F9C00D6826C /* SigningWireframe.swift */,
+				1D3EC68524025FAE00D6826C /* SigningPresenter.swift */,
+			);
+			path = SignatureSigning;
+			sourceTree = "<group>";
+		};
+		1D3EC67C24025AF300D6826C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D3EC67D24025B4D00D6826C /* Signing.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1D3EC6892402F82100D6826C /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				1D3EC68A2402F82E00D6826C /* View */,
+				1D3EC68D2402F85700D6826C /* SignatureViewController.swift */,
+				1D3EC68F2402F86700D6826C /* SignaturePresenter.swift */,
+				1D3EC6912402F87A00D6826C /* SignatureWireframe.swift */,
+				1D3EC6932402F88B00D6826C /* SignatureProtocol.swift */,
+				1D3EC6952402F89F00D6826C /* SignatureInteractor.swift */,
+			);
+			path = Signature;
+			sourceTree = "<group>";
+		};
+		1D3EC68A2402F82E00D6826C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D3EC68B2402F83E00D6826C /* Signature.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1D97CAC124015FA200B77CC1 = {
@@ -165,7 +241,7 @@
 			children = (
 				1D97CADB24015FAA00B77CC1 /* Info.plist */,
 				1D97CAFD2401845900B77CC1 /* Application */,
-				1D97CAFE240184DC00B77CC1 /* Setup */,
+				1D3EC67A24025A7900D6826C /* Features */,
 				1D3EC67224023F8900D6826C /* Extensions */,
 				1D3EC675240242D300D6826C /* Models */,
 				1D3EC6712402385900D6826C /* Utils */,
@@ -349,6 +425,8 @@
 				1D3EC663240221FC00D6826C /* Setup.storyboard in Resources */,
 				1D97CADA24015FAA00B77CC1 /* LaunchScreen.storyboard in Resources */,
 				1D97CAD724015FAA00B77CC1 /* Assets.xcassets in Resources */,
+				1D3EC67E24025B4D00D6826C /* Signing.storyboard in Resources */,
+				1D3EC68C2402F83E00D6826C /* Signature.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,10 +559,20 @@
 				1D3EC67424023FB500D6826C /* UITextFieldExtension.swift in Sources */,
 				1D3EC6682402296F00D6826C /* SetupAccountProtocol.swift in Sources */,
 				1D3EC6662402293D00D6826C /* SetupAccountViewController.swift in Sources */,
+				1D3EC6982402FE9300D6826C /* QRCodeGenerator.swift in Sources */,
+				1D3EC68224025F8B00D6826C /* SigningProtocol.swift in Sources */,
+				1D3EC6962402F89F00D6826C /* SignatureInteractor.swift in Sources */,
+				1D3EC68E2402F85700D6826C /* SignatureViewController.swift in Sources */,
+				1D3EC68024025F7400D6826C /* SigningViewController.swift in Sources */,
+				1D3EC68424025F9C00D6826C /* SigningWireframe.swift in Sources */,
 				1D3EC677240242F500D6826C /* EthereumWallet.swift in Sources */,
+				1D3EC6922402F87A00D6826C /* SignatureWireframe.swift in Sources */,
 				1D97CACE24015FA200B77CC1 /* AppDelegate.swift in Sources */,
+				1D3EC68624025FAE00D6826C /* SigningPresenter.swift in Sources */,
 				1D3EC66E24022A6F00D6826C /* SetupAccountWireframe.swift in Sources */,
+				1D3EC6902402F86700D6826C /* SignaturePresenter.swift in Sources */,
 				1D3EC66C24022A5100D6826C /* SetupAccountInteractor.swift in Sources */,
+				1D3EC6942402F88B00D6826C /* SignatureProtocol.swift in Sources */,
 				1D3EC6702402384E00D6826C /* StoryboardUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

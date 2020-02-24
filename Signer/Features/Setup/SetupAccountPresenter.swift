@@ -23,7 +23,7 @@ class SetupAccountPresenter: SetupAccountPresenterProtocol {
     }
     
     func signClicked() {
-        
+        wireframe?.presentSignModule()
     }
     
     func verifyClicked() {
