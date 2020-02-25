@@ -37,7 +37,7 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     }
     
     @IBAction func verifyClicked(_ sender: Any) {
-    
+        presenter?.verifyClicked()
     }
     
     func showWalletDetails(walletDetails: EthereumWallet) {

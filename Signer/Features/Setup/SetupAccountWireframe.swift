@@ -37,4 +37,11 @@ class SetupAccountWireframe: SetupAccountWireframeProtocol {
         }
         SigningWireframe.presentSetupAccountModule(vc: view)
     }
+    
+    func presentVerificationModule() {
+        guard let view = presenter?.view as? UIViewController else {
+            return
+        }
+        VerificationWireframe.presentVerificationModule(vc: view)
+    }
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Verification View Controller-->
+        <scene sceneID="S6N-xc-AUr">
+            <objects>
+                <viewController storyboardIdentifier="VerificationViewController" id="K4G-ZA-Ftm" customClass="VerificationViewController" customModule="Signer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ioC-I8-xFK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Tq-Hh-wRL">
+                                <rect key="frame" x="30" y="89" width="354" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rV1-L5-ugl">
+                                <rect key="frame" x="30" y="225" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzW-CO-td5">
+                                <rect key="frame" x="30" y="289" width="354" height="30"/>
+                                <state key="normal" title="Verify Message"/>
+                                <connections>
+                                    <action selector="verifyClicked:" destination="K4G-ZA-Ftm" eventType="touchUpInside" id="Ybf-Tm-bFu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="A6E-Jw-WBC" firstAttribute="trailing" secondItem="7Tq-Hh-wRL" secondAttribute="trailing" constant="30" id="A3h-SZ-mLl"/>
+                            <constraint firstItem="rV1-L5-ugl" firstAttribute="leading" secondItem="A6E-Jw-WBC" secondAttribute="leading" constant="30" id="DJD-dM-hlb"/>
+                            <constraint firstItem="7Tq-Hh-wRL" firstAttribute="leading" secondItem="A6E-Jw-WBC" secondAttribute="leading" constant="30" id="DmY-sY-pAL"/>
+                            <constraint firstItem="A6E-Jw-WBC" firstAttribute="trailing" secondItem="rV1-L5-ugl" secondAttribute="trailing" constant="30" id="K6K-vQ-2DW"/>
+                            <constraint firstItem="7Tq-Hh-wRL" firstAttribute="top" secondItem="A6E-Jw-WBC" secondAttribute="top" constant="45" id="YCL-O6-GYg"/>
+                            <constraint firstItem="mzW-CO-td5" firstAttribute="top" secondItem="rV1-L5-ugl" secondAttribute="bottom" constant="30" id="ab1-Pm-Jbr"/>
+                            <constraint firstItem="rV1-L5-ugl" firstAttribute="top" secondItem="7Tq-Hh-wRL" secondAttribute="bottom" constant="100" id="bqD-NP-GP2"/>
+                            <constraint firstItem="A6E-Jw-WBC" firstAttribute="trailing" secondItem="mzW-CO-td5" secondAttribute="trailing" constant="30" id="fE5-Jk-l8e"/>
+                            <constraint firstItem="mzW-CO-td5" firstAttribute="leading" secondItem="A6E-Jw-WBC" secondAttribute="leading" constant="30" id="sF5-11-cMJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A6E-Jw-WBC"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="rV1-L5-ugl" id="jcf-rV-mdO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oyo-zH-7lc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="7"/>
+        </scene>
+    </scenes>
+</document>

@@ -27,6 +27,6 @@ class SetupAccountPresenter: SetupAccountPresenterProtocol {
     }
     
     func verifyClicked() {
-        
+        wireframe?.presentVerificationModule()
     }
 }

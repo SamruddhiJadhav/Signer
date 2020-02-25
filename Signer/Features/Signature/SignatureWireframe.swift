@@ -32,10 +32,4 @@ class SignatureWireframe: SignatureWireframeProtocol {
         
         vc.navigationController?.pushViewController(view, animated: true)
     }
-    
-//    func presentSignatureModule(message: String) {
-//        guard let view = presenter?.view as? UIViewController else {
-//            return
-//        }
-//    }
 }
