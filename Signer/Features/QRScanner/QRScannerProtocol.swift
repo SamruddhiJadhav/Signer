@@ -22,5 +22,4 @@ protocol QRScannerPresenterProtocol: class {
 
 protocol QRScannerWireframeProtocol: class {
     var presenter: QRScannerPresenterProtocol? { get set }
-    
 }

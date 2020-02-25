@@ -23,11 +23,13 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECv-iH-5Ib">
                                 <rect key="frame" x="30" y="155" width="354" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="messageTextFiled"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pd-ul-uVG">
                                 <rect key="frame" x="30" y="219" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SignMessageButton"/>
                                 <state key="normal" title="Sign Message"/>
                                 <connections>
                                     <action selector="signMessageClicked:" destination="6s7-Ks-hG6" eventType="touchUpInside" id="oqG-ze-DpS"/>

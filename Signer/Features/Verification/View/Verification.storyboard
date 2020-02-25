@@ -23,11 +23,13 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rV1-L5-ugl">
                                 <rect key="frame" x="30" y="225" width="354" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="MessageTextField"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzW-CO-td5">
                                 <rect key="frame" x="30" y="289" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="VerifyMessageButton"/>
                                 <state key="normal" title="Verify Message"/>
                                 <connections>
                                     <action selector="verifyClicked:" destination="K4G-ZA-Ftm" eventType="touchUpInside" id="Ybf-Tm-bFu"/>

@@ -10,14 +10,15 @@ import AVFoundation
 import UIKit
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, QRScannerViewControllerProtocol {
+    
     var presenter: QRScannerPresenterProtocol?
     
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
+    var captureSession: AVCaptureSession?
+    var previewLayer: AVCaptureVideoPreviewLayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.black
         
         setupCapturing()
     }

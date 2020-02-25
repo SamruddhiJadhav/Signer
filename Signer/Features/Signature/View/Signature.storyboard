@@ -23,6 +23,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cF-gm-geQ">
                                 <rect key="frame" x="30" y="155" width="354" height="0.0"/>
+                                <accessibility key="accessibilityConfiguration" identifier="MessageLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,6 +33,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VpW-oz-vM1">
                                         <rect key="frame" x="40" y="182.5" width="334" height="334"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="QRCodeImageView"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VpW-oz-vM1" secondAttribute="height" multiplier="1:1" id="sgn-1f-lsu"/>
                                         </constraints>

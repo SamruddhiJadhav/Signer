@@ -29,6 +29,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Private Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtC-LL-url">
                                                 <rect key="frame" x="30" y="40" width="354" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="privateKeyLabel"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -48,24 +49,28 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Address" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COn-bd-e4n">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="0.0"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="addressLabel"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8s-o6-oEp">
                                                         <rect key="frame" x="0.0" y="20" width="354" height="0.0"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="AddressValueLabel"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNg-YA-qrF">
                                                         <rect key="frame" x="0.0" y="40" width="354" height="0.0"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="balanceLabel"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80d-Ze-tWV">
                                                         <rect key="frame" x="0.0" y="60" width="354" height="0.0"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="BalanceValueLabel"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -74,6 +79,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-Ib-olk">
                                                 <rect key="frame" x="191.5" y="180" width="31" height="0.0"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="SignButton"/>
                                                 <state key="normal" title="Sign"/>
                                                 <connections>
                                                     <action selector="signClicked:" destination="cFY-4l-ECq" eventType="touchUpInside" id="meb-dW-NdQ"/>
@@ -81,6 +87,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-Iq-toi">
                                                 <rect key="frame" x="187" y="195" width="40" height="0.0"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="VerifyButton"/>
                                                 <state key="normal" title="Verify"/>
                                                 <connections>
                                                     <action selector="verifyClicked:" destination="cFY-4l-ECq" eventType="touchUpInside" id="rBN-Tt-A2P"/>
