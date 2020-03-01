@@ -19,4 +19,5 @@ struct Constants {
     static let signatureInvalid = "Signature is Invalid."
     static let message = "Message: %@"
     static let eth = " ETH"
+    static let account = "Account"
 }

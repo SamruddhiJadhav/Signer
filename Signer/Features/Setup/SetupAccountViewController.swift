@@ -26,7 +26,17 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
         super.viewDidLoad()
         setup()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     func setup() {
         privateKeyTextField.delegate = self
         privateKeyTextField.addKeyboardWithDoneButton()
@@ -43,7 +53,8 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     func showWalletDetails(walletDetails: EthereumWallet) {
         accountsView.isHidden = false
         setupView.isHidden = true
-        
+
+        titleLabel.text = Constants.account
         addressLabel.text = walletDetails.address
         balanceLabel.text = walletDetails.balance
     }
