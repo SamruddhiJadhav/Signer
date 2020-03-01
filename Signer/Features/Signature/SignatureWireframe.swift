@@ -9,7 +9,7 @@
 import UIKit
 
 class SignatureWireframe: SignatureWireframeProtocol {
-    var presenter: SignaturePresenterProtocol?
+    weak var presenter: SignaturePresenterProtocol?
     
     static let storyboardId = "Signature"
     static let viewId = "SignatureViewController"

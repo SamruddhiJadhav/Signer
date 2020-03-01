@@ -9,7 +9,7 @@
 import UIKit
 
 class SigningWireframe: SigningWireframeProtocol {
-    var presenter: SigningPresenterProtocol?
+    weak var presenter: SigningPresenterProtocol?
     
     
     static let storyboardId = "Signing"

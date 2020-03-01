@@ -9,7 +9,7 @@
 import UIKit
 
 class QRScannerWireframe: QRScannerWireframeProtocol {
-    var presenter: QRScannerPresenterProtocol?
+    weak var presenter: QRScannerPresenterProtocol?
     
     static func presentQRScanner(vc: UIViewController, message: String) {
         let view: QRScannerViewController = QRScannerViewController()

@@ -9,7 +9,7 @@
 import UIKit
 
 class SignatureInteractor: SignatureInteracterProtocol {
-    var presenter: SignaturePresenterProtocol?
+    weak var presenter: SignaturePresenterProtocol?
     
     func getQRCode() -> UIImage? {
         guard let message = presenter?.message else {

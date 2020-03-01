@@ -10,16 +10,16 @@ import AVFoundation
 import UIKit
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, QRScannerViewControllerProtocol {
-    
+
     var presenter: QRScannerPresenterProtocol?
-    
-    var captureSession: AVCaptureSession?
-    var previewLayer: AVCaptureVideoPreviewLayer?
+
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
-        
+
         setupCapturing()
     }
 
@@ -38,7 +38,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
         } else {
-            failed()
+            showAlert(message: Constants.doesNotSupportScanning, title: Constants.scanningNotSupported)
             return
         }
 
@@ -50,7 +50,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.qr]
         } else {
-            failed()
+            showAlert(message: Constants.doesNotSupportScanning, title: Constants.scanningNotSupported)
             return
         }
 
@@ -62,10 +62,10 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         captureSession.startRunning()
     }
     
-    func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+    func showAlert(message: String, title: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Constants.ok, style: .default))
+        present(alertController, animated: true)
         captureSession = nil
     }
 

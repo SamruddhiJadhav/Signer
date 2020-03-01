@@ -10,7 +10,7 @@ import Foundation
 
 class SignaturePresenter: SignaturePresenterProtocol {
     var interactor: SignatureInteracterProtocol?
-    var view: SignatureViewControllerProtocol?
+    weak var view: SignatureViewControllerProtocol?
     var wireframe: SignatureWireframeProtocol?
     
     var message: String?
@@ -21,6 +21,6 @@ class SignaturePresenter: SignaturePresenterProtocol {
             return
         }
         view?.setQRImage(image: qrCodeImage)
-        view?.setMessage(message: "Message: \(messageString)")
+        view?.setMessage(message: String.init(format: Constants.message, messageString))
     }
 }

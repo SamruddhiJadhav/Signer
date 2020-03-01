@@ -9,7 +9,7 @@
 import Foundation
 
 class VerificationPresenter: VerificationPresenterProtocol {
-    var view: VerificationViewControllerProtocol?
+    weak var view: VerificationViewControllerProtocol?
     var wireframe: VerificationWireframeProtocol?
     
     func vefiryMessage(message: String?) {

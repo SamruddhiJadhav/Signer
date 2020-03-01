@@ -11,6 +11,8 @@ import Foundation
 
 protocol QRScannerViewControllerProtocol: class {
     var presenter: QRScannerPresenterProtocol? { get set }
+
+    func showAlert(message: String, title: String)
 }
 
 protocol QRScannerPresenterProtocol: class {

@@ -9,7 +9,7 @@
 import UIKit
 
 class VerificationWireframe: VerificationWireframeProtocol {
-    var presenter: VerificationPresenterProtocol?
+    weak var presenter: VerificationPresenterProtocol?
     
     static let storyboardId = "Verification"
     static let viewId = "VerificationViewController"

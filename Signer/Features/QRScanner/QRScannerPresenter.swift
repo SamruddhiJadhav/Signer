@@ -9,22 +9,21 @@
 import Foundation
 
 class QRScannerPresenter: QRScannerPresenterProtocol {
-    var view: QRScannerViewControllerProtocol?
+    weak var view: QRScannerViewControllerProtocol?
     var wireframe: QRScannerWireframeProtocol?
     
     var message: String?
     
     func matchMessage(scannedMessage: String) {
         guard let messageString = message else {
-            print("Error")
+            view?.showAlert(message: Constants.messageEmpty, title: Constants.failed)
             return
         }
         
-        if messageString == scannedMessage {
-            print("Yes")
+        if Web3SwiftManager.sharedInstance.validatePersonalMessage(message: messageString, qrResultString: scannedMessage) {
+            view?.showAlert(message: Constants.signatureValid, title: Constants.succeed)
         } else {
-            print("No")
+            view?.showAlert(message: Constants.signatureInvalid, title: Constants.failed)
         }
     }
-    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class SigningPresenter: SigningPresenterProtocol {
-    var view: SigningViewControllerProtocol?
+    weak var view: SigningViewControllerProtocol?
     var wireframe: SigningWireframeProtocol?
     
     func signMessageClicked(message: String?) {

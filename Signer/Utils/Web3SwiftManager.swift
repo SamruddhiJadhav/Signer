@@ -16,22 +16,23 @@ class Web3SwiftManager {
 
     var walletAddress: String?
     var privateKey: String?
-    
+
     private let web3Rinkeby = Web3.InfuraRinkebyWeb3()
     
     func getBalanceAndAddress() -> EthereumWallet? {
         guard let privateKey = privateKey else { return nil }
+
         if let privateKeyData = Data.fromHex(privateKey) {
-            guard let newWallet = try? EthereumKeystoreV3(privateKey: privateKeyData) else { return nil }
-            guard let ethAddress = newWallet.getAddress() else { return nil }
+            guard let keyStore = try? EthereumKeystoreV3(privateKey: privateKeyData) else { return nil }
+            guard let ethAddress = keyStore.getAddress() else { return nil }
             guard let balanceResult = try? web3Rinkeby.eth.getBalance(address: ethAddress) else { return nil }
             guard let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3) else { return nil }
             walletAddress = ethAddress.address
-            return EthereumWallet(address: ethAddress.address, balance: balanceString + " ETH")
+            return EthereumWallet(address: ethAddress.address, balance: balanceString + Constants.eth)
         }
         return nil
     }
-    
+
     func signPersonalMessage(message: String) -> Data? {
         guard let privateKey = privateKey else { return nil }
         guard let privateKeyData = Data.fromHex(privateKey) else { return nil }
@@ -45,17 +46,12 @@ class Web3SwiftManager {
             let signedBase64Data = signedData.base64EncodedData()
             return signedBase64Data
         } catch {
-            print(error)
             return nil
         }
     }
-    
+
     func validatePersonalMessage(message: String, qrResultString: String) -> Bool {
-        if let signature = Data(base64Encoded: qrResultString),
-            let unMarshalledSign = SECP256K1.unmarshalSignature(signatureData: signature) {
-            print("V = " + String(unMarshalledSign.v))
-            print("R = " + Data(unMarshalledSign.r).toHexString())
-            print("S = " + Data(unMarshalledSign.s).toHexString())
+        if let signature = Data(base64Encoded: qrResultString){
             guard let messageData = message.data(using: .utf8) else { return false }
             let signer = try? web3Rinkeby.personal.ecrecover(personalMessage: messageData, signature: signature)
             if (signer?.address == walletAddress) {
