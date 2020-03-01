@@ -10,7 +10,7 @@ import UIKit
 
 class QRCodeGenerator {
     static let shared = QRCodeGenerator()
-    
+
     func generateQRCode(message: Data) -> UIImage? {
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(message, forKey: "inputMessage")

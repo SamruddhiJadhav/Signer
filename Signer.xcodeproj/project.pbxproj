@@ -41,10 +41,15 @@
 		1D97CACE24015FA200B77CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D97CACD24015FA200B77CC1 /* AppDelegate.swift */; };
 		1D97CAD724015FAA00B77CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D97CAD624015FAA00B77CC1 /* Assets.xcassets */; };
 		1D97CADA24015FAA00B77CC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D97CAD824015FAA00B77CC1 /* LaunchScreen.storyboard */; };
-		1D97CAE524015FAB00B77CC1 /* SignerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D97CAE424015FAB00B77CC1 /* SignerTests.swift */; };
 		1D97CAF024015FAB00B77CC1 /* SignerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D97CAEF24015FAB00B77CC1 /* SignerUITests.swift */; };
 		33C651B532212672F906376F /* Pods_SignerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52ADF56354D1BE5C96A90FBF /* Pods_SignerTests.framework */; };
 		4C066B94240AC4CA00EBE27E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B93240AC4CA00EBE27E /* Constants.swift */; };
+		4C066B96240C309000EBE27E /* Web3SwiftManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B95240C309000EBE27E /* Web3SwiftManagerTest.swift */; };
+		4C066B98240C454200EBE27E /* XCTestExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B97240C454200EBE27E /* XCTestExpectation.swift */; };
+		4C066B9B240C459300EBE27E /* SetupAccountWireframeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B9A240C459300EBE27E /* SetupAccountWireframeMock.swift */; };
+		4C066B9D240C463200EBE27E /* SetupAccountInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B9C240C463200EBE27E /* SetupAccountInteractorMock.swift */; };
+		4C066B9F240C475D00EBE27E /* SetupAccountPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B9E240C475D00EBE27E /* SetupAccountPresenterTests.swift */; };
+		4C066BA1240C492B00EBE27E /* SetupAccountViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066BA0240C492B00EBE27E /* SetupAccountViewControllerMock.swift */; };
 		6A06C6D2A28EAFB08B984213 /* Pods_Signer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695A9477DC80FF16BC7B73EF /* Pods_Signer.framework */; };
 		866ADE3167F14EDEC7674829 /* Pods_Signer_SignerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0722C1E3696D730DE446FB43 /* Pods_Signer_SignerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -105,13 +110,18 @@
 		1D97CAD924015FAA00B77CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D97CADB24015FAA00B77CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D97CAE024015FAB00B77CC1 /* SignerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D97CAE424015FAB00B77CC1 /* SignerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerTests.swift; sourceTree = "<group>"; };
 		1D97CAE624015FAB00B77CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D97CAEB24015FAB00B77CC1 /* SignerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D97CAEF24015FAB00B77CC1 /* SignerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerUITests.swift; sourceTree = "<group>"; };
 		1D97CAF124015FAB00B77CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		341517F280962D07ED84EDB6 /* Pods-Signer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signer.debug.xcconfig"; path = "Target Support Files/Pods-Signer/Pods-Signer.debug.xcconfig"; sourceTree = "<group>"; };
 		4C066B93240AC4CA00EBE27E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C066B95240C309000EBE27E /* Web3SwiftManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3SwiftManagerTest.swift; sourceTree = "<group>"; };
+		4C066B97240C454200EBE27E /* XCTestExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExpectation.swift; sourceTree = "<group>"; };
+		4C066B9A240C459300EBE27E /* SetupAccountWireframeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountWireframeMock.swift; sourceTree = "<group>"; };
+		4C066B9C240C463200EBE27E /* SetupAccountInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountInteractorMock.swift; sourceTree = "<group>"; };
+		4C066B9E240C475D00EBE27E /* SetupAccountPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountPresenterTests.swift; sourceTree = "<group>"; };
+		4C066BA0240C492B00EBE27E /* SetupAccountViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountViewControllerMock.swift; sourceTree = "<group>"; };
 		52ADF56354D1BE5C96A90FBF /* Pods_SignerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		613E20A205540C884D2E4A5A /* Pods-SignerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignerTests.release.xcconfig"; path = "Target Support Files/Pods-SignerTests/Pods-SignerTests.release.xcconfig"; sourceTree = "<group>"; };
 		66A98032618A451649978623 /* Pods-Signer-SignerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signer-SignerUITests.release.xcconfig"; path = "Target Support Files/Pods-Signer-SignerUITests/Pods-Signer-SignerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -305,8 +315,10 @@
 		1D97CAE324015FAB00B77CC1 /* SignerTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D97CAE424015FAB00B77CC1 /* SignerTests.swift */,
+				4C066B99240C457000EBE27E /* SetupTests */,
 				1D97CAE624015FAB00B77CC1 /* Info.plist */,
+				4C066B95240C309000EBE27E /* Web3SwiftManagerTest.swift */,
+				4C066B97240C454200EBE27E /* XCTestExpectation.swift */,
 			);
 			path = SignerTests;
 			sourceTree = "<group>";
@@ -342,6 +354,17 @@
 				1D3EC66D24022A6F00D6826C /* SetupAccountWireframe.swift */,
 			);
 			path = Setup;
+			sourceTree = "<group>";
+		};
+		4C066B99240C457000EBE27E /* SetupTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C066B9A240C459300EBE27E /* SetupAccountWireframeMock.swift */,
+				4C066B9C240C463200EBE27E /* SetupAccountInteractorMock.swift */,
+				4C066B9E240C475D00EBE27E /* SetupAccountPresenterTests.swift */,
+				4C066BA0240C492B00EBE27E /* SetupAccountViewControllerMock.swift */,
+			);
+			path = SetupTests;
 			sourceTree = "<group>";
 		};
 		D370B4823C92744F067A5C75 /* Frameworks */ = {
@@ -645,7 +668,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D97CAE524015FAB00B77CC1 /* SignerTests.swift in Sources */,
+				4C066B9B240C459300EBE27E /* SetupAccountWireframeMock.swift in Sources */,
+				4C066B9D240C463200EBE27E /* SetupAccountInteractorMock.swift in Sources */,
+				4C066B96240C309000EBE27E /* Web3SwiftManagerTest.swift in Sources */,
+				4C066B9F240C475D00EBE27E /* SetupAccountPresenterTests.swift in Sources */,
+				4C066BA1240C492B00EBE27E /* SetupAccountViewControllerMock.swift in Sources */,
+				4C066B98240C454200EBE27E /* XCTestExpectation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,12 @@ import Foundation
 class QRScannerPresenter: QRScannerPresenterProtocol {
     weak var view: QRScannerViewControllerProtocol?
     var wireframe: QRScannerWireframeProtocol?
+
+    var swiftManager: Web3SwiftManager
+    
+    init(swiftManager: Web3SwiftManager = Web3SwiftManager()) {
+        self.swiftManager = swiftManager
+    }
     
     var message: String?
     
@@ -20,10 +26,13 @@ class QRScannerPresenter: QRScannerPresenterProtocol {
             return
         }
         
-        if Web3SwiftManager.sharedInstance.validatePersonalMessage(message: messageString, qrResultString: scannedMessage) {
-            view?.showAlert(message: Constants.signatureValid, title: Constants.succeed)
+        if Web3SwiftManager.sharedInstance.validatePersonalMessage(message: messageString,
+                                                                   qrResultString: scannedMessage) {
+            view?.showAlert(message: Constants.signatureValid,
+                            title: Constants.succeed)
         } else {
-            view?.showAlert(message: Constants.signatureInvalid, title: Constants.failed)
+            view?.showAlert(message: Constants.signatureInvalid,
+                            title: Constants.failed)
         }
     }
 }

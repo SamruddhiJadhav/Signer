@@ -12,3 +12,9 @@ struct EthereumWallet {
     var address: String
     var balance: String
 }
+
+extension EthereumWallet: Equatable {
+    static func == (lhs: EthereumWallet, rhs: EthereumWallet) -> Bool {
+        return (lhs.address == rhs.address) && (lhs.balance == rhs.balance)
+    }
+}
