@@ -34,16 +34,26 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-0h-U6S">
+                                                <rect key="frame" x="30" y="114" width="354" height="30"/>
+                                                <state key="normal" title="Setup"/>
+                                                <connections>
+                                                    <action selector="setupClicked:" destination="cFY-4l-ECq" eventType="touchUpInside" id="XXw-tm-rze"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="eLP-0h-U6S" secondAttribute="trailing" constant="30" id="7pf-wx-AI1"/>
                                             <constraint firstItem="mtC-LL-url" firstAttribute="top" secondItem="a5M-3F-kqV" secondAttribute="top" constant="40" id="U3q-AH-J2R"/>
+                                            <constraint firstItem="eLP-0h-U6S" firstAttribute="leading" secondItem="a5M-3F-kqV" secondAttribute="leading" constant="30" id="bW9-UU-z7E"/>
                                             <constraint firstItem="mtC-LL-url" firstAttribute="leading" secondItem="a5M-3F-kqV" secondAttribute="leading" constant="30" id="dyN-G3-gSq"/>
+                                            <constraint firstItem="eLP-0h-U6S" firstAttribute="top" secondItem="mtC-LL-url" secondAttribute="bottom" constant="40" id="p7f-VO-ItW"/>
                                             <constraint firstAttribute="trailing" secondItem="mtC-LL-url" secondAttribute="trailing" constant="30" id="poc-u5-WI5"/>
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saa-Ur-O2n" userLabel="AccountsView">
-                                        <rect key="frame" x="0.0" y="648" width="414" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-LY-mTF">
                                                 <rect key="frame" x="30" y="20" width="354" height="60"/>

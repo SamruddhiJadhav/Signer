@@ -15,8 +15,7 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     
     @IBOutlet var setupView: UIView!
     @IBOutlet var privateKeyTextField: UITextField!
-    
-    
+
     @IBOutlet var accountsView: UIView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
@@ -40,6 +39,11 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     func setup() {
         privateKeyTextField.delegate = self
         privateKeyTextField.addKeyboardWithDoneButton()
+    }
+
+    @IBAction func setupClicked(_ sender: Any) {
+        presenter?.getAccountDetails(forKey: privateKeyTextField.text)
+        privateKeyTextField.resignFirstResponder()
     }
     
     @IBAction func signClicked(_ sender: Any) {
