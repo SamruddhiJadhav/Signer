@@ -18,7 +18,6 @@ class QRScannerWireframe: QRScannerWireframeProtocol {
         
         view.presenter = presenter
         presenter.view = view
-        presenter.wireframe = wireframe
         wireframe.presenter = presenter
         presenter.message = message
            

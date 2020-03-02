@@ -12,7 +12,7 @@ import XCTest
 class SetupAccountInteractorMock: SetupAccountInteracterProtocol {
     var presenter: SetupAccountPresenterProtocol?
 
-    func getAccountDetails(privateKey: String) -> EthereumWallet? {
-        return EthereumWallet(address: "Address", balance: "25 ETH")
+    func getAccountDetails(privateKey: String, completion: @escaping (EthereumWallet?) -> Void) {
+        completion(EthereumWallet(address: "Address", balance: "25 ETH"))
     }
 }

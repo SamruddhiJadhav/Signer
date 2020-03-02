@@ -10,15 +10,13 @@ import Foundation
 
 class QRScannerPresenter: QRScannerPresenterProtocol {
     weak var view: QRScannerViewControllerProtocol?
-    var wireframe: QRScannerWireframeProtocol?
 
     var swiftManager: Web3SwiftManager
+    var message: String?
     
     init(swiftManager: Web3SwiftManager = Web3SwiftManager()) {
         self.swiftManager = swiftManager
     }
-    
-    var message: String?
     
     func matchMessage(scannedMessage: String) {
         guard let messageString = message else {

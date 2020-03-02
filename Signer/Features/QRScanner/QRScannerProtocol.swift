@@ -17,11 +17,8 @@ protocol QRScannerViewControllerProtocol: class {
 
 protocol QRScannerPresenterProtocol: class {
     var view: QRScannerViewControllerProtocol? { get set }
-    var wireframe: QRScannerWireframeProtocol? { get set }
     
     func matchMessage(scannedMessage: String)
 }
 
-protocol QRScannerWireframeProtocol: class {
-    var presenter: QRScannerPresenterProtocol? { get set }
-}
+protocol QRScannerWireframeProtocol: class {}

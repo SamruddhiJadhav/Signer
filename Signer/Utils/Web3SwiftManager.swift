@@ -19,39 +19,51 @@ class Web3SwiftManager {
 
     private let web3Rinkeby = Web3.InfuraRinkebyWeb3()
     
-    func getBalanceAndAddress() -> EthereumWallet? {
-        guard let privateKey = privateKey else { return nil }
+    func getBalanceAndAddress(completion: @escaping(EthereumWallet?) -> Void) {
+        guard let privateKey = privateKey else {
+            completion(nil)
+            return
+        }
 
         if let privateKeyData = Data.fromHex(privateKey) {
             guard let keyStore = try? EthereumKeystoreV3(privateKey: privateKeyData),
                 let ethAddress = keyStore.getAddress(),
                 let balanceResult = try? web3Rinkeby.eth.getBalance(address: ethAddress),
                 let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3) else {
-                    return nil
+                    completion(nil)
+                    return
             }
             walletAddress = ethAddress.address
-            return EthereumWallet(address: ethAddress.address, balance: balanceString + Constants.eth)
+            let wallet = EthereumWallet(address: ethAddress.address, balance: balanceString + Constants.eth)
+            completion(wallet)
         }
-        return nil
+        completion(nil)
     }
 
-    func signPersonalMessage(message: String) -> Data? {
+    func signPersonalMessage(message: String, completion: @escaping(Data?) -> Void) {
         guard let privateKey = privateKey,
             let privateKeyData = Data.fromHex(privateKey),
             let keystore = try? EthereumKeystoreV3(privateKey:
                 privateKeyData) else {
-            return nil
+            completion(nil)
+            return
         }
         let keystoreManager = KeystoreManager([keystore])
         web3Rinkeby.addKeystoreManager(keystoreManager)
-        guard let addresses = keystoreManager.addresses else { return nil }
+        guard let addresses = keystoreManager.addresses else {
+            completion(nil)
+            return
+        }
         do {
-            guard let messageData = message.data(using: .utf8) else { return nil }
+            guard let messageData = message.data(using: .utf8) else {
+                completion(nil)
+                return
+            }
             let signedData = try web3Rinkeby.personal.signPersonalMessage(message: messageData, from: addresses[0])
             let signedBase64Data = signedData.base64EncodedData()
-            return signedBase64Data
+            completion(signedBase64Data)
         } catch {
-            return nil
+            completion(nil)
         }
     }
 

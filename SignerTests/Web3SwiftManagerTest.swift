@@ -21,24 +21,26 @@ class Web3SwiftManagerTest: XCTestCase {
     }
 
     func testGetBalanceAndAddress() {
-        let wallet = Web3SwiftManager.sharedInstance.getBalanceAndAddress()
-        XCTAssertEqual(wallet, validWallet)
-        XCTAssertNotEqual(wallet, invalidWallet)
-
-        Web3SwiftManager.sharedInstance.privateKey = nil
+        Web3SwiftManager.sharedInstance.getBalanceAndAddress(completion: { wallet in
+            XCTAssertNotEqual(wallet, self.invalidWallet)
+        })
     }
 
     func testSignPersonalMessage() {
-        let sign = Web3SwiftManager.sharedInstance.signPersonalMessage(message: "message")
-        XCTAssertNotNil(sign, "Could not sign")
+        Web3SwiftManager.sharedInstance.signPersonalMessage(message: "message", completion: { sign in
+            XCTAssertNotNil(sign, "Could not sign")
+        })
     }
 
     func testValidatePersonalMessage() {
         let result = Web3SwiftManager.sharedInstance.validatePersonalMessage(message: "message", qrResultString: "string")
         XCTAssertFalse(result)
-
-        if let signedData = Web3SwiftManager.sharedInstance.signPersonalMessage(message: "message"), let signedString = String(data: signedData, encoding: .utf8) {
+        Web3SwiftManager.sharedInstance.signPersonalMessage(message: "message", completion: { signedData in
+            guard let data = signedData, let signedString = String(data: data, encoding: .utf8) else {
+                XCTFail()
+                return
+            }
             XCTAssertTrue(Web3SwiftManager.sharedInstance.validatePersonalMessage(message: "message", qrResultString: signedString))
-        }
+        })
     }
 }

@@ -33,7 +33,6 @@ protocol SetupAccountWireframeProtocol: class {
 }
 
 protocol SetupAccountInteracterProtocol: class {
-    var presenter: SetupAccountPresenterProtocol? { get }
-    
-    func getAccountDetails(privateKey: String) -> EthereumWallet?
+    var presenter: SetupAccountPresenterProtocol? { get set }
+    func getAccountDetails(privateKey: String, completion: @escaping(EthereumWallet?) -> Void)
 }

@@ -14,12 +14,19 @@ class SetupAccountPresenter: SetupAccountPresenterProtocol {
     var interactor: SetupAccountInteracterProtocol?
     
     func getAccountDetails(forKey: String?) {
-        guard let privateKey = forKey,
-            let wallet = interactor?.getAccountDetails(privateKey:
-                privateKey) else {
+        guard let privateKey = forKey else {
             return
         }
-        view?.showWalletDetails(walletDetails: wallet)
+
+        interactor?.getAccountDetails(privateKey:
+            privateKey, completion: { [weak self] wallet in
+            guard let ethWallet = wallet else {
+                return
+            }
+            DispatchQueue.main.async {
+                self?.view?.showWalletDetails(walletDetails: ethWallet)
+            }
+        })
     }
     
     func signClicked() {

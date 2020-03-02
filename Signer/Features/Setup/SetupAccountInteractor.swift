@@ -10,9 +10,11 @@ import Foundation
 
 class SetupAccountInteractor: SetupAccountInteracterProtocol {
     weak var presenter: SetupAccountPresenterProtocol?
-    
-    func getAccountDetails(privateKey: String) -> EthereumWallet? {
+
+    func getAccountDetails(privateKey: String, completion: @escaping(EthereumWallet?) -> Void) {
         Web3SwiftManager.sharedInstance.privateKey = privateKey
-        return Web3SwiftManager.sharedInstance.getBalanceAndAddress()
+        Web3SwiftManager.sharedInstance.getBalanceAndAddress { wallet in
+            completion(wallet)
+        }
     }
 }

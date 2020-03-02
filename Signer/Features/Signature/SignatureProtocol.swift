@@ -18,20 +18,16 @@ protocol SignatureViewControllerProtocol: class {
 protocol SignaturePresenterProtocol: class {
     var view: SignatureViewControllerProtocol? { get set }
     var interactor: SignatureInteracterProtocol? { get set }
-    var wireframe: SignatureWireframeProtocol? { get set }
     
     var message: String? { get set }
     
     func getQRCode()
 }
 
-protocol SignatureWireframeProtocol: class {
-    var presenter: SignaturePresenterProtocol? { get set }
-    
-}
+protocol SignatureWireframeProtocol: class {}
 
 protocol SignatureInteracterProtocol: class {
     var presenter: SignaturePresenterProtocol? { get }
     
-    func getQRCode() -> UIImage?
+    func getQRCode(completion: @escaping (UIImage?) -> Void)
 }

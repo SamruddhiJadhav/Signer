@@ -11,16 +11,21 @@ import Foundation
 class SignaturePresenter: SignaturePresenterProtocol {
     var interactor: SignatureInteracterProtocol?
     weak var view: SignatureViewControllerProtocol?
-    var wireframe: SignatureWireframeProtocol?
     
     var message: String?
     
     func getQRCode() {
-        guard let qrCodeImage = interactor?.getQRCode(),
-            let messageString = message else {
+        guard let messageString = message else {
             return
         }
-        view?.setQRImage(image: qrCodeImage)
-        view?.setMessage(message: String.init(format: Constants.message, messageString))
+        interactor?.getQRCode(completion: { [weak self] qrCodeImage in
+            guard let image = qrCodeImage else {
+                return
+            }
+            DispatchQueue.main.async {
+                self?.view?.setQRImage(image: image)
+                self?.view?.setMessage(message: String.init(format: Constants.message, messageString))
+            }
+        })
     }
 }

@@ -10,10 +10,12 @@ import UIKit
 
 class QRCodeGenerator {
     static let shared = QRCodeGenerator()
-
+    private let filterName = "CIQRCodeGenerator"
+    private let filterKey = "inputMessage"
+    
     func generateQRCode(message: Data) -> UIImage? {
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(message, forKey: "inputMessage")
+        if let filter = CIFilter(name: filterName) {
+            filter.setValue(message, forKey: filterKey)
             let transform = CGAffineTransform(scaleX: 3, y: 3)
             if let output = filter.outputImage?.transformed(by: transform) {
                 return UIImage(ciImage: output)

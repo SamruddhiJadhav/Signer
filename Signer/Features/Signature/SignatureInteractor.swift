@@ -11,14 +11,18 @@ import UIKit
 class SignatureInteractor: SignatureInteracterProtocol {
     weak var presenter: SignaturePresenterProtocol?
     
-    func getQRCode() -> UIImage? {
+    func getQRCode(completion: @escaping (UIImage?) -> Void) {
         guard let message = presenter?.message else {
-            return nil
+            completion(nil)
+            return
         }
-        if let signedData = Web3SwiftManager.sharedInstance.signPersonalMessage(message:
-            message) {
-            return QRCodeGenerator.shared.generateQRCode(message: signedData)
-        }
-        return nil
+        Web3SwiftManager.sharedInstance.signPersonalMessage(message:
+            message, completion: { data in
+            guard let signedData = data else {
+                completion(nil)
+                return
+            }
+            completion(QRCodeGenerator.shared.generateQRCode(message: signedData))
+        })
     }
 }
