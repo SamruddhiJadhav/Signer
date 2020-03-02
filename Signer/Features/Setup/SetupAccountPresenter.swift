@@ -23,9 +23,7 @@ class SetupAccountPresenter: SetupAccountPresenterProtocol {
             guard let ethWallet = wallet else {
                 return
             }
-            DispatchQueue.main.async {
-                self?.view?.showWalletDetails(walletDetails: ethWallet)
-            }
+            self?.view?.showWalletDetails(walletDetails: ethWallet)
         })
     }
     

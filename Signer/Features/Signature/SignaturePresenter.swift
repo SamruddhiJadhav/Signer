@@ -22,10 +22,8 @@ class SignaturePresenter: SignaturePresenterProtocol {
             guard let image = qrCodeImage else {
                 return
             }
-            DispatchQueue.main.async {
-                self?.view?.setQRImage(image: image)
-                self?.view?.setMessage(message: String.init(format: Constants.message, messageString))
-            }
+            self?.view?.setQRImage(image: image)
+            self?.view?.setMessage(message: String.init(format: Constants.message, messageString))
         })
     }
 }

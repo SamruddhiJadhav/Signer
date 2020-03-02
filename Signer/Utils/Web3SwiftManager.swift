@@ -18,28 +18,36 @@ class Web3SwiftManager {
     var privateKey: String?
 
     private let web3Rinkeby = Web3.InfuraRinkebyWeb3()
-    
+
+    // Calls wait() on main thread in PromiseKit so calling on background thread
     func getBalanceAndAddress(completion: @escaping(EthereumWallet?) -> Void) {
         guard let privateKey = privateKey else {
             completion(nil)
             return
         }
 
-        if let privateKeyData = Data.fromHex(privateKey) {
-            guard let keyStore = try? EthereumKeystoreV3(privateKey: privateKeyData),
-                let ethAddress = keyStore.getAddress(),
-                let balanceResult = try? web3Rinkeby.eth.getBalance(address: ethAddress),
-                let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3) else {
-                    completion(nil)
-                    return
+        DispatchQueue.global().async { [weak self] in
+            if let privateKeyData = Data.fromHex(privateKey) {
+                guard let keyStore = try? EthereumKeystoreV3(privateKey: privateKeyData),
+                    let ethAddress = keyStore.getAddress(),
+                    let balanceResult = try? self?.web3Rinkeby.eth.getBalance(address: ethAddress),
+                    let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3) else {
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
+                        return
+                }
+                self?.walletAddress = ethAddress.address
+                let wallet = EthereumWallet(address: ethAddress.address, balance: balanceString + Constants.eth)
+                DispatchQueue.main.async {
+                    completion(wallet)
+                }
             }
-            walletAddress = ethAddress.address
-            let wallet = EthereumWallet(address: ethAddress.address, balance: balanceString + Constants.eth)
-            completion(wallet)
+            completion(nil)
         }
-        completion(nil)
     }
 
+    // Calls wait() on main thread in PromiseKit so calling on background thread
     func signPersonalMessage(message: String, completion: @escaping(Data?) -> Void) {
         guard let privateKey = privateKey,
             let privateKeyData = Data.fromHex(privateKey),
@@ -54,16 +62,24 @@ class Web3SwiftManager {
             completion(nil)
             return
         }
-        do {
-            guard let messageData = message.data(using: .utf8) else {
-                completion(nil)
-                return
+        DispatchQueue.global().async { [weak self] in
+            do {
+                guard let messageData = message.data(using: .utf8) else {
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                    return
+                }
+                let signedData = try self?.web3Rinkeby.personal.signPersonalMessage(message: messageData, from: addresses[0])
+                let signedBase64Data = signedData?.base64EncodedData()
+                DispatchQueue.main.async {
+                    completion(signedBase64Data)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }
-            let signedData = try web3Rinkeby.personal.signPersonalMessage(message: messageData, from: addresses[0])
-            let signedBase64Data = signedData.base64EncodedData()
-            completion(signedBase64Data)
-        } catch {
-            completion(nil)
         }
     }
 
