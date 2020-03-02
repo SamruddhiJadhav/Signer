@@ -9,6 +9,7 @@ The app is build with VIPER and clean architeture which modularises the app and 
 ## Third Party Lib
 web3swift - For Ethereum
 
+## About
 1. Used Pod to mange dependecies
 2. Implemented UI tests
 3. Implemented Unit tests for Web2SwiftManager and SetAccount VPIER.
