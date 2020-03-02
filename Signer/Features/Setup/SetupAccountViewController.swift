@@ -23,7 +23,7 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        view.addSubview(LoadingIndicator.setupLoadingIndicator(frame: view.frame))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,12 +36,8 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    func setup() {
-        privateKeyTextField.delegate = self
-        privateKeyTextField.addKeyboardWithDoneButton()
-    }
-
     @IBAction func setupClicked(_ sender: Any) {
+        LoadingIndicator.showLoadingIndicator()
         presenter?.getAccountDetails(forKey: privateKeyTextField.text)
         privateKeyTextField.resignFirstResponder()
     }
@@ -55,6 +51,8 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
     }
     
     func showWalletDetails(walletDetails: EthereumWallet) {
+        LoadingIndicator.hideLoadingIndicator()
+        
         accountsView.isHidden = false
         setupView.isHidden = true
 
@@ -62,10 +60,8 @@ class SetupAccountViewController: UIViewController, SetupAccountViewControllerPr
         addressLabel.text = walletDetails.address
         balanceLabel.text = walletDetails.balance
     }
-}
 
-extension SetupAccountViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        presenter?.getAccountDetails(forKey: textField.text)
+    func hideLoadingIndicator() {
+        LoadingIndicator.hideLoadingIndicator()
     }
 }

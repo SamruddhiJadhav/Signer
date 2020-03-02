@@ -15,12 +15,13 @@ class SetupAccountPresenter: SetupAccountPresenterProtocol {
     
     func getAccountDetails(forKey: String?) {
         guard let privateKey = forKey else {
+            view?.hideLoadingIndicator()
             return
         }
-
         interactor?.getAccountDetails(privateKey:
             privateKey, completion: { [weak self] wallet in
             guard let ethWallet = wallet else {
+                self?.view?.hideLoadingIndicator()
                 return
             }
             self?.view?.showWalletDetails(walletDetails: ethWallet)

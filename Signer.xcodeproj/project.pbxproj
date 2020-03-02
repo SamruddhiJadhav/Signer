@@ -50,6 +50,7 @@
 		4C066B9D240C463200EBE27E /* SetupAccountInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B9C240C463200EBE27E /* SetupAccountInteractorMock.swift */; };
 		4C066B9F240C475D00EBE27E /* SetupAccountPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066B9E240C475D00EBE27E /* SetupAccountPresenterTests.swift */; };
 		4C066BA1240C492B00EBE27E /* SetupAccountViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066BA0240C492B00EBE27E /* SetupAccountViewControllerMock.swift */; };
+		4CD39EB1240D687C005389A0 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD39EB0240D687C005389A0 /* LoadingIndicator.swift */; };
 		6A06C6D2A28EAFB08B984213 /* Pods_Signer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695A9477DC80FF16BC7B73EF /* Pods_Signer.framework */; };
 		866ADE3167F14EDEC7674829 /* Pods_Signer_SignerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0722C1E3696D730DE446FB43 /* Pods_Signer_SignerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		4C066B9C240C463200EBE27E /* SetupAccountInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountInteractorMock.swift; sourceTree = "<group>"; };
 		4C066B9E240C475D00EBE27E /* SetupAccountPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountPresenterTests.swift; sourceTree = "<group>"; };
 		4C066BA0240C492B00EBE27E /* SetupAccountViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupAccountViewControllerMock.swift; sourceTree = "<group>"; };
+		4CD39EB0240D687C005389A0 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		52ADF56354D1BE5C96A90FBF /* Pods_SignerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		613E20A205540C884D2E4A5A /* Pods-SignerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignerTests.release.xcconfig"; path = "Target Support Files/Pods-SignerTests/Pods-SignerTests.release.xcconfig"; sourceTree = "<group>"; };
 		66A98032618A451649978623 /* Pods-Signer-SignerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signer-SignerUITests.release.xcconfig"; path = "Target Support Files/Pods-Signer-SignerUITests/Pods-Signer-SignerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				1D3EC66F2402384E00D6826C /* StoryboardUtil.swift */,
 				1D3EC6782402448100D6826C /* Web3SwiftManager.swift */,
 				1D3EC6972402FE9300D6826C /* QRCodeGenerator.swift */,
+				4CD39EB0240D687C005389A0 /* LoadingIndicator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				1D3EC68224025F8B00D6826C /* SigningProtocol.swift in Sources */,
 				1D3EC6962402F89F00D6826C /* SignatureInteractor.swift in Sources */,
 				1D3EC68E2402F85700D6826C /* SignatureViewController.swift in Sources */,
+				4CD39EB1240D687C005389A0 /* LoadingIndicator.swift in Sources */,
 				1D3EC68024025F7400D6826C /* SigningViewController.swift in Sources */,
 				1D3EC68424025F9C00D6826C /* SigningWireframe.swift in Sources */,
 				1D3EC677240242F500D6826C /* EthereumWallet.swift in Sources */,
@@ -875,7 +879,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J2UT3UP94;
+				DEVELOPMENT_TEAM = VUENBHJPJE;
 				INFOPLIST_FILE = SignerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -898,7 +902,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J2UT3UP94;
+				DEVELOPMENT_TEAM = VUENBHJPJE;
 				INFOPLIST_FILE = SignerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -920,7 +924,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J2UT3UP94;
+				DEVELOPMENT_TEAM = VUENBHJPJE;
 				INFOPLIST_FILE = SignerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -942,7 +946,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J2UT3UP94;
+				DEVELOPMENT_TEAM = VUENBHJPJE;
 				INFOPLIST_FILE = SignerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

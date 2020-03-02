@@ -16,10 +16,12 @@ class SignaturePresenter: SignaturePresenterProtocol {
     
     func getQRCode() {
         guard let messageString = message else {
+            view?.hideLoadingIndicator()
             return
         }
         interactor?.getQRCode(completion: { [weak self] qrCodeImage in
             guard let image = qrCodeImage else {
+                self?.view?.hideLoadingIndicator()
                 return
             }
             self?.view?.setQRImage(image: image)

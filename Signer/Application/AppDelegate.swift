@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let rootViewController = SetupAccountWireframe.presentSetupAccountModule()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
+        let navigationController = UINavigationController(rootViewController: SetupAccountWireframe.presentSetupAccountModule())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true

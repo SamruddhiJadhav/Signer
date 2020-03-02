@@ -12,6 +12,7 @@ protocol SetupAccountViewControllerProtocol: class {
     var presenter: SetupAccountPresenterProtocol? { get set }
     
     func showWalletDetails(walletDetails: EthereumWallet)
+    func hideLoadingIndicator() 
 }
 
 protocol SetupAccountPresenterProtocol: class {

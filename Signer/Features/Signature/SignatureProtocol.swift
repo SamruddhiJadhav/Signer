@@ -13,6 +13,7 @@ protocol SignatureViewControllerProtocol: class {
     
     func setQRImage(image: UIImage)
     func setMessage(message: String)
+    func hideLoadingIndicator()
 }
 
 protocol SignaturePresenterProtocol: class {

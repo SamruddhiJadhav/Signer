@@ -16,4 +16,8 @@ class SetupAccountViewControllerMock: SetupAccountViewControllerProtocol {
     func showWalletDetails(walletDetails: EthereumWallet) {
         XCTestExpectation.fulfill(with: #function, from: expectations)
     }
+
+    func hideLoadingIndicator() {
+        XCTestExpectation.fulfill(with: #function, from: expectations)
+    }
 }

@@ -16,14 +16,22 @@ class SignatureViewController: UIViewController, SignatureViewControllerProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(LoadingIndicator.setupLoadingIndicator(frame: view.frame))
+        
+        LoadingIndicator.showLoadingIndicator()
         presenter?.getQRCode()
     }
     
     func setQRImage(image: UIImage) {
+        LoadingIndicator.hideLoadingIndicator()
         qrCodeImageView.image = image
     }
     
     func setMessage(message: String) {
         messageLabel.text = message
+    }
+
+    func hideLoadingIndicator() {
+        LoadingIndicator.hideLoadingIndicator()
     }
 }
