@@ -14,6 +14,7 @@ class SigningViewController: UIViewController, SigningViewControllerProtocol {
     @IBOutlet var messageTextField: UITextField!
     
     @IBAction func signMessageClicked(_ sender: Any) {
+        messageTextField.resignFirstResponder()
         presenter?.signMessageClicked(message: messageTextField.text)
     }
 }

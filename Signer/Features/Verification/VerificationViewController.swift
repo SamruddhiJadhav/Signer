@@ -14,6 +14,7 @@ class VerificationViewController: UIViewController, VerificationViewControllerPr
     @IBOutlet var messageTextField: UITextField!
     
     @IBAction func verifyClicked(_ sender: Any) {
+        messageTextField.resignFirstResponder()
         presenter?.vefiryMessage(message: messageTextField.text)
     }
 }
